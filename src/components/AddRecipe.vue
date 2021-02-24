@@ -3,17 +3,17 @@
     <h2 class="center-align purple-text">Add New Recipe</h2>
     <form @submit.prevent="addRecipe">
       <div class="field title">
-        <label class="purple-text" for="title">Title:</label>
+        <label class="purple-text" for="title">Title :</label>
         <input class="purple-text" type="text" name="title" v-model="title">
       </div>
 
       <div v-for="(ing, index) in ingredients" class="field ingredient" :key="index">
-        <label class="purple-text" for="ingredient">Ingredient:</label>
+        <label class="purple-text" for="ingredient">Ingredient :</label>
         <input class="purple-text" type="text" name="ingredient" v-model="ingredients[index]">
         <i class="material-icons delete purple-text" @click="deleteIng(ing)">delete</i>
       </div>
       <div class="field add-ingredient">
-        <label class="purple-text" for="add-ingredient">Add an ingredient (press tab to add):</label>
+        <label class="purple-text" for="add-ingredient">Ingredient : (Press tab to add)</label>
         <input class="purple-text" type="text" name="add-ingredient" @keydown.tab.prevent="addIng" v-model="another">
       </div>
       <div class="field center-align">
