@@ -1,4 +1,4 @@
-# project-planner
+# Recipe-App
 
 ## Project setup
 ```
