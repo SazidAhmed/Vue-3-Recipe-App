@@ -1,23 +1,23 @@
 <template>
-  <div v-if="smoothie" class="edit-smoothie container z-depth-1">
+  <div v-if="smoothie" class="edit-recipe container z-depth-1">
     <h2 class="purple-text center-align">Edit {{ smoothie.title }}</h2>
     <form @submit.prevent="editRecipe">
       <div class="field title">
-        <label for="title">Smoothie title:</label>
-        <input type="text" name="title" v-model="smoothie.title">
+        <label class="purple-text" for="title">Title:</label>
+        <input class="purple-text" type="text" name="title" v-model="smoothie.title">
       </div>
       <div v-for="(ing, index) in smoothie.ingredients" class="field ingredient" :key="index">
-        <label for="ingredient">Ingredient:</label>
-        <input type="text" name="ingredient" v-model="smoothie.ingredients[index]">
-        <i class="material-icons delete" @click="deleteIng(ing)">delete</i>
+        <label class="purple-text" for="ingredient">Ingredient:</label>
+        <input class="purple-text" type="text" name="ingredient" v-model="smoothie.ingredients[index]">
+        <i class="material-icons delete purple-text" @click="deleteIng(ing)">delete</i>
       </div>
       <div class="field add-ingredient">
-        <label for="add-ingredient">Add an ingredient (press tab to add):</label>
-        <input type="text" name="add-ingredient" @keydown.tab.prevent="addIng" v-model="another">
+        <label class="purple-text" for="add-ingredient">Add an ingredient (press tab to add):</label>
+        <input class="purple-text" type="text" name="add-ingredient" @keydown.tab.prevent="addIng" v-model="another">
       </div>
       <div class="field center-align">
         <p v-if="feedback" class="red-text">{{ feedback }}</p>
-        <button class="btn purple">Update Smoothie</button>
+        <button class="btn purple">Update Recipe</button>
       </div>
     </form>
   </div>
@@ -28,7 +28,7 @@ import db from '@/firebase/init'
 import slugify from 'slugify'
 
 export default {
-  name: 'EditSmoothie',
+  name: 'EditRecipe',
   data(){
     return{
       smoothie: null,
@@ -90,26 +90,31 @@ export default {
 </script>
  
 <style>
-.edit-smoothie{
+.edit-recipe{
   margin-top: 60px;
   padding: 20px;
   max-width: 500px;
 }
-.edit-smoothie h2{
+.edit-recipe h2{
   font-size: 2em;
   margin: 20px auto;
 }
-.edit-smoothie .field{
+.edit-recipe .field{
   margin: 20px auto;
   position: relative;
+  color: purple;
 }
-.edit-smoothie .delete{
+.edit-recipe .delete{
   position: absolute;
   right: 0;
   bottom: 16px;
   color: #aaa;
   font-size: 1.4em;
   cursor: pointer;
+}
+.edit-recipe .field input[type=text]:focus {
+  border-bottom: 1px solid purple;
+  box-shadow: 0 1px 0 0 purple;
 }
 </style>
  

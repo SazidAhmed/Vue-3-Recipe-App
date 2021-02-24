@@ -2,7 +2,7 @@
   <div class="index container">
     <div class="card" v-for="smoothie in smoothies" :key="smoothie.id">
       <div class="card-content">
-        <i class="material-icons delete red-text" @click="deleteSmoothie(smoothie.id)">delete</i>
+        <i class="material-icons delete purple-text" @click="deleteSmoothie(smoothie.id)">delete</i>
         <h2 class="purple-text">{{ smoothie.title }}</h2>
         
         <ul class="ingredients">
@@ -11,11 +11,13 @@
           </li>
         </ul>
       </div>
-      <span class="btn-floating btn-large halfway-fab deep-purple">
-        <router-link :to="{ name: 'EditRecipe', params: {recipe_slug: smoothie.slug}}">
+      
+      <router-link :to="{ name: 'EditRecipe', params: {recipe_slug: smoothie.slug}}">
+        <span class="btn-floating btn-large halfway-fab purple">
           <i class="material-icons edit">edit</i>
-        </router-link>
-      </span>
+        </span>
+      </router-link>
+     
     </div>
   </div>
 </template>

@@ -12,7 +12,6 @@
         <input class="purple-text" type="text" name="ingredient" v-model="ingredients[index]">
         <i class="material-icons delete purple-text" @click="deleteIng(ing)">delete</i>
       </div>
-
       <div class="field add-ingredient">
         <label class="purple-text" for="add-ingredient">Add an ingredient (press tab to add):</label>
         <input class="purple-text" type="text" name="add-ingredient" @keydown.tab.prevent="addIng" v-model="another">
@@ -105,6 +104,10 @@ export default {
   color: #aaa;
   font-size: 1.4em;
   cursor: pointer;
+}
+.add-recipe .field input[type=text]:focus {
+  border-bottom: 1px solid purple;
+  box-shadow: 0 1px 0 0 purple;
 }
 </style>
 
