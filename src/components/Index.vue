@@ -1,23 +1,25 @@
 <template>
-  <div class="index container">
-    <div class="card" v-for="smoothie in smoothies" :key="smoothie.id">
-      <div class="card-content">
-        <i class="material-icons delete purple-text" @click="deleteSmoothie(smoothie.id)">delete</i>
-        <h2 class="purple-text">{{ smoothie.title }}</h2>
-        
-        <ul class="ingredients">
-          <li v-for="(ing, index) in smoothie.ingredients" :key="index">
-            <span class="chip">{{ ing }}</span>
-          </li>
-        </ul>
+  <div class="container">
+    <div class="row">
+      <div class="col s12 m6 l4 xl4" v-for="smoothie in smoothies" :key="smoothie.id">
+        <div class="card" >
+          <div class="card-content">
+            <i class="material-icons delete purple-text" @click="deleteSmoothie(smoothie.id)">delete</i>
+            <h2 class="purple-text">{{ smoothie.title }}</h2>
+            
+            <ul class="ingredients">
+              <li v-for="(ing, index) in smoothie.ingredients" :key="index">
+                <span class="chip">{{ ing }}</span>
+              </li>
+            </ul>
+          </div>
+          <router-link :to="{ name: 'EditRecipe', params: {recipe_slug: smoothie.slug}}">
+            <span class="btn-floating btn-large halfway-fab purple">
+              <i class="material-icons edit">edit</i>
+            </span>
+          </router-link>
+        </div>
       </div>
-      
-      <router-link :to="{ name: 'EditRecipe', params: {recipe_slug: smoothie.slug}}">
-        <span class="btn-floating btn-large halfway-fab purple">
-          <i class="material-icons edit">edit</i>
-        </span>
-      </router-link>
-     
     </div>
   </div>
 </template>
@@ -60,24 +62,23 @@ export default {
 </script>
 
 <style>
-.index{
+.card{
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
   grid-gap: 30px;
   margin-top: 60px;
 }
-.index h2{
+.card h2{
   font-size: 1.8em;
   text-align: center;
   margin-top: 0;
 }
-.index .ingredients{
+.card .ingredients{
   margin: 30px auto;
 }
-.index .ingredients li{
+.card .ingredients li{
   display: inline-block;
 }
-.index .delete{
+.card .delete{
   position: absolute;
   top: 4px;
   right: 4px;

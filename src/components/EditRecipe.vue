@@ -12,8 +12,9 @@
         <i class="material-icons delete purple-text" @click="deleteIng(ing)">delete</i>
       </div>
       <div class="field add-ingredient">
-        <label class="purple-text" for="add-ingredient">Ingredient : (Press tab to add)</label>
-        <input class="purple-text" type="text" name="add-ingredient" @keydown.tab.prevent="addIng" v-model="another">
+        <label class="purple-text" for="add-ingredient">Ingredient :</label>
+        <input class="purple-text" type="text" name="add-ingredient" v-model="another">
+        <i class="material-icons delete green-text" @click="addIng">add</i>
       </div>
       <div class="field center-align">
         <p v-if="feedback" class="red-text">{{ feedback }}</p>
@@ -58,7 +59,7 @@ export default {
           console.log(err)
         })
       } else {
-        this.feedback = 'You must enter a smoothie title'
+        this.feedback = 'Enter a recipe title'
       }
     
     },
@@ -68,7 +69,7 @@ export default {
         this.another = null
         this.feedback = null
       } else {
-        this.feedback = 'You must enter a value to add another ingredient'
+        this.feedback = 'Enter a value to add another ingredient'
       }
     },
     deleteIng(ing){
