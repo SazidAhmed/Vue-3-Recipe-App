@@ -116,9 +116,5 @@ export default {
   border-bottom: 1px solid purple;
   box-shadow: 0 1px 0 0 purple;
 }
-.recipie{
-    color: grey;
-    font-size: 15px;
-}
 </style>
  
